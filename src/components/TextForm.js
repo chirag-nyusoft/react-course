@@ -4,7 +4,7 @@ export default function TextForm(props) {
   const [text, setText] = useState('Please enter to changing a Text');
 
   const handleOnChange = (e) =>{
-      setText(e.target.value);
+    setText(e.target.value);
   }
 
   const handleUpCase = (param) => {
@@ -19,6 +19,10 @@ export default function TextForm(props) {
         newText = text.toLowerCase();
         break;
 
+      case 'clear':
+        newText = '';
+        break;
+      
       default:
           break;
       }
@@ -34,11 +38,13 @@ export default function TextForm(props) {
       </div>
       <button className="btn btn-primary" onClick={() => handleUpCase('upper') }>UpperCase</button>
       <button className="btn btn-primary mx-2" onClick={() => handleUpCase('lower') }>LowerCase</button>
+      <button className="btn btn-primary mx-2" onClick={() => handleUpCase('clear') }>Clear</button>      
     </div>
     <div className="container my-3">
       <p>Total length of char is:: <span> {text.length} </span></p>
       <p>Total words Are:: <span> { text.split(' ').length } </span></p>
       <p>Reading time: <span> { 0.008 * text.split(' ').length } min... </span></p>
+      <p>Total vowels Are:: <span> { text.match(/[aeiou]/gi).length } </span> </p>
     </div>
     </>
   )
