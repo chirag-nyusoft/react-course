@@ -26,7 +26,8 @@ export default function TextForm(props) {
   }
 
   return (
-    <div>
+    <>
+    <div className="container">
       <h4>{props.heading}</h4>
       <div className="mb-3">
         <textarea className="form-control" value={text} onChange={handleOnChange} id="textword" rows="8" cols="8" />
@@ -34,5 +35,11 @@ export default function TextForm(props) {
       <button className="btn btn-primary" onClick={() => handleUpCase('upper') }>UpperCase</button>
       <button className="btn btn-primary mx-2" onClick={() => handleUpCase('lower') }>LowerCase</button>
     </div>
+    <div className="container my-3">
+      <p>Total length of char is:: <span> {text.length} </span></p>
+      <p>Total words Are:: <span> { text.split(' ').length } </span></p>
+      <p>Reading time: <span> { 0.008 * text.split(' ').length } min... </span></p>
+    </div>
+    </>
   )
 }
