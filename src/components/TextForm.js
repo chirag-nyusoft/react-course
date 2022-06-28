@@ -9,8 +9,14 @@ export default function TextForm(props) {
 
   const handleCopyText = () => {
     let myText = document.getElementById('textword');
-    myText.select();
-    navigator.clipboard.writeText(myText.value);
+    if(myText !== ''){
+      myText.select();
+      navigator.clipboard.writeText(myText.value);
+      props.alert('Text Copied..!!', 'success');
+    }
+    else{
+      props.alert('Text Missing..!!', 'danger');
+    }
   }
 
   const handleUpCase = (param) => {
@@ -19,19 +25,23 @@ export default function TextForm(props) {
     switch(param) {
       case 'upper':
         newText = text.toUpperCase();
+        props.alert('Converted to UpperCase', 'success');
         break;
 
       case 'lower':
         newText = text.toLowerCase();
+        props.alert('Converted to LowerCase', 'success');
         break;
 
       case 'clear':
         newText = '';
+        props.alert('All Text Clered!', 'warning');
         break;
 
       case 'spaces':
         let myText = text.split(/[  ]+/);
         newText = myText.join(" ");
+        props.alert('Extra spaces are removed!!', 'warning');
         break;
 
       default:
