@@ -11,6 +11,7 @@ const Alert = (props) => {
 
   return (
 //  this is a condition to check if porps.alert is not null then "&&" operator after content will be displayed
+    // {`${}`} = this is a backticks with variable to display
     props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
         <strong>{ capitalize(props.alert.type) }:</strong> {props.alert.msg}
         <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

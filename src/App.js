@@ -23,11 +23,21 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
       showAlert('Darkmode is active.', 'dark');
+      document.title = 'TextUtils - Dark Mode';
+      // chnage the runtime title to highlight user - but not good for better UI 
+      /* setInterval(()=>{
+        document.title = "Dark Mode Activated..!!"
+      }, 2500);
+      setInterval(()=>{
+        document.title = "Dark Mode Alert Activated..!!"
+      }, 1500); */
 
     }else{
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert('Lightmode is active.', 'success');
+      document.title = 'TextUtils - Light Mode';
+      
     }
   }
   
