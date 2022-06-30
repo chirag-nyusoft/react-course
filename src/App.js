@@ -1,15 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
-import About from './components/About';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
-import { 
+/* import { 
   BrowserRouter as Router,
   Routes,
   Route 
-} from 'react-router-dom';
+} from 'react-router-dom'; */
 
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
   const mainMenu = {
     menu1:{
       label: 'Home',
-      url:  '/'
+      url:  '#'
     },
     menu2:{
       label: 'About',
@@ -89,18 +89,19 @@ function App() {
   
   return (
     <>
-      <Router>
+      {/* <Router> */}
           {/* <Navbar /> */}
           <Navbar title={navbar.title} mode={navbar.mode} toggleMode={navbar.toggleMode} menus={navbar.menus} />
           {/* display alert here */}
           <Alert alert={alert} /> 
           <div className="container my-3">
-            <Routes>
+            {/* <Routes>
               <Route exact path="/about" element={<About />} />
-              <Route exact path="/" element={<TextForm alert={showAlert} heading="Enter the analyze text:" mode={mode}/>} />
-            </Routes>
+              <Route exact path="/" element={} />
+            </Routes> */}
+              <TextForm alert={showAlert} heading="Enter the analyze text:" mode={mode}/>
           </div>       
-      </Router>
+      {/* </Router> */}
     </>
   );
 }
