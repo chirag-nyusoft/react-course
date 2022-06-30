@@ -13,21 +13,21 @@ function Navbar(props) {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="/">{props.menu1}</Link>
+                  <Link className="nav-link active" aria-current="page" to={props.menus.menu1.url}> {props.menus.menu1.label}</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/about">{props.menu2}</Link>
+                  <Link className="nav-link" to={props.menus.menu2.url}>{props.menus.menu2.label}</Link>
                 </li>
                 <li className="nav-item dropdown">
-                  <Link className="nav-link dropdown-toggle" to="/products" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {props.menu3}
+                  <Link className="nav-link dropdown-toggle" to={props.menus.menu3.url} id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {props.menus.menu3.label}
                   </Link>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><Link className="dropdown-item" to="/">{props.submenu1}</Link></li>
-                    <li><Link className="dropdown-item" to="/">{props.submenu2}</Link></li>
+                    <li><Link className="dropdown-item" to={props.menus.menu3.submenu.submenu1.url}>{props.menus.menu3.submenu.submenu1.label}</Link></li>
+                    <li><Link className="dropdown-item" to={props.menus.menu3.submenu.submenu2.url}>{props.menus.menu3.submenu.submenu2.label}</Link></li>
                     <li><hr className="dropdown-divider" /></li>
-                    <li><Link className="dropdown-item" to="/">{props.submenu3}</Link></li>
-                    <li><Link className="dropdown-item" to="/">{props.submenu4}</Link></li>
+                    <li><Link className="dropdown-item" to={props.menus.menu3.submenu.submenu3.url}>{props.menus.menu3.submenu.submenu3.label}</Link></li>
+                    <li><Link className="dropdown-item" to={props.menus.menu3.submenu.submenu4.url}>{props.menus.menu3.submenu.submenu4.label}</Link></li>
                   </ul>
                 </li>
               </ul>

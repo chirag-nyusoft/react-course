@@ -46,12 +46,52 @@ function App() {
       
     }
   }
+
+  const mainMenu = {
+    menu1:{
+      label: 'Home',
+      url:  '/'
+    },
+    menu2:{
+      label: 'About',
+      url:  '/about'
+    },
+    menu3:{
+      label: 'Products',
+      url:  '/shop',
+      submenu: {
+        submenu1:{
+          label: 'SubMenu One',
+          url: '',
+        },
+        submenu2:{
+          label: 'SubMenu Two',
+          url: '',
+        },
+        submenu3:{
+          label: 'SubMenu Three',
+          url: '',
+        },
+        submenu4:{
+          label: 'SubMenu Four',
+          url: '',
+        }
+      }
+    }    
+  }
+
+  const navbar = {
+    title: 'TextUtils',
+    mode: mode,
+    toggleMode: toggleMode,
+    menus: mainMenu
+  };
   
   return (
     <>
       <Router>
           {/* <Navbar /> */}
-          <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} menu1="Home" menu2="About" menu3="Products" />
+          <Navbar title={navbar.title} mode={navbar.mode} toggleMode={navbar.toggleMode} menus={navbar.menus} />
           {/* display alert here */}
           <Alert alert={alert} /> 
           <div className="container my-3">
