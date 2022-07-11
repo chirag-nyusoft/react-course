@@ -12,6 +12,7 @@ export default function TextForm(props) {
     if(myText !== ''){
       myText.select();
       navigator.clipboard.writeText(myText.value);
+      document.getSelection().removeAllRanges();
       props.alert('Text Copied..!!', 'success');
     }
     else{
@@ -57,16 +58,16 @@ export default function TextForm(props) {
       <div className="mb-3">
         <textarea className="form-control" value={text} onChange={handleOnChange} id="textword" rows="8" cols="8" style={{backgroundColor: props.mode === 'light' ? '#042743' : 'white', color: props.mode === 'light' ? 'white' : '#042743' }} />
       </div>
-      <button className="btn btn-primary" onClick={() => handleUpCase('upper') }>UpperCase</button>
-      <button className="btn btn-primary mx-2" onClick={() => handleUpCase('lower') }>LowerCase</button>
-      <button className="btn btn-primary mx-2" onClick={() => handleUpCase('clear') }>Clear</button>      
-      <button className="btn btn-primary mx-2" onClick={() => handleCopyText() }>Copy Text</button>
-      <button className="btn btn-primary mx-2" onClick={() => handleUpCase('spaces') }>Remove Extra Spaces</button>
+      <button disabled={text.length===0} className="btn btn-primary" onClick={() => handleUpCase('upper') }>UpperCase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={() => handleUpCase('lower') }>LowerCase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={() => handleUpCase('clear') }>Clear</button>      
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={() => handleCopyText() }>Copy Text</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={() => handleUpCase('spaces') }>Remove Extra Spaces</button>
     </div>
     <div className="container my-3" style={{color: props.mode === 'dark' ? 'white' : '#042743'}}>
       <p>Total length of char is:: <span> { text !== '' ? text.length : 0 } </span></p>
-      <p>Total words Are:: <span> { text !== '' ? text.split(' ').length : 0 } </span></p>
-      <p>Reading time: <span> { text !== '' ? 0.008 * text.split(' ').length : 0 } min... </span></p>
+      <p>Total words Are:: <span> { text !== '' ? text.split(' ').filter((element)=>{ return element.length !== 0 }).length : 0 } </span></p>
+      <p>Reading time: <span> { text !== '' ? 0.008 * text.split(' ').filter((element)=>{ return element.length !== 0 }).length : 0 } min... </span></p>
       <p>Total vowels Are:: <span> { text !== '' ? text.match(/[aeiou]/gi).length : 0  } </span> </p>
     </div>
     </>

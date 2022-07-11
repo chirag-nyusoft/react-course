@@ -5,7 +5,7 @@ function Navbar(props) {
     return (
         <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">{props.title}</a>
+            <a className="navbar-brand" href="/#">{props.title}</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -15,7 +15,7 @@ function Navbar(props) {
                   {/* change <a> to <Link> tag and href -> to  for route */}
                   <a className="nav-link active" aria-current="page" href={props.menus.menu1.url}> {props.menus.menu1.label}</a>
                 </li>
-                {/* <li className="nav-item">
+                <li className="nav-item">
                   <a className="nav-link" href={props.menus.menu2.url}>{props.menus.menu2.label}</a>
                 </li>
                 <li className="nav-item dropdown">
@@ -29,7 +29,7 @@ function Navbar(props) {
                     <li><a className="dropdown-item" href={props.menus.menu3.submenu.submenu3.url}>{props.menus.menu3.submenu.submenu3.label}</a></li>
                     <li><a className="dropdown-item" href={props.menus.menu3.submenu.submenu4.url}>{props.menus.menu3.submenu.submenu4.label}</a></li>
                   </ul>
-                </li> */}
+                </li>
               </ul>
               <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
