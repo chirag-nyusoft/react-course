@@ -10,9 +10,9 @@ export default function TextForm(props) {
   const handleCopyText = () => {
     let myText = document.getElementById('textword');
     if(myText !== ''){
-      myText.select();
+      // myText.select();
       navigator.clipboard.writeText(myText.value);
-      document.getSelection().removeAllRanges();
+      // document.getSelection().removeAllRanges();
       props.alert('Text Copied..!!', 'success');
     }
     else{
@@ -66,7 +66,8 @@ export default function TextForm(props) {
     </div>
     <div className="container my-3" style={{color: props.mode === 'dark' ? 'white' : '#042743'}}>
       <p>Total length of char is:: <span> { text !== '' ? text.length : 0 } </span></p>
-      <p>Total words Are:: <span> { text !== '' ? text.split(' ').filter((element)=>{ return element.length !== 0 }).length : 0 } </span></p>
+      {/* filter() use for to non count blank space or new blank line with regx spilt() white space */}
+      <p>Total words Are:: <span> { text !== '' ? text.split(/\s+/).filter((element)=>{ return element.length !== 0 }).length : 0 } </span></p>
       <p>Reading time: <span> { text !== '' ? 0.008 * text.split(' ').filter((element)=>{ return element.length !== 0 }).length : 0 } min... </span></p>
       <p>Total vowels Are:: <span> { text !== '' ? text.match(/[aeiou]/gi).length : 0  } </span> </p>
     </div>
