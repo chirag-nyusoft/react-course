@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# checkout my first gihub based project:
+# "homepage": "https://chirag-nyusoft.github.io/react-course",
+
 ## Available Scripts
 
 In the project directory, you can run:
